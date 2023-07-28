@@ -16,10 +16,10 @@ const UserBox:React.FC<UserBoxProps> = ({
     const [isLoading,setIsLoading] = useState(false);
     const handleClick = useCallback(()=>{
         setIsLoading(true);
-        axios.post('/api/conversation',{
+        axios.post('/api/conversations',{
             userId:data.id
         }).then((data)=>{
-            router.push(`/conversation/${data.data.id}`)
+            router.push(`/conversations/${data.data.id}`)
         }).finally(()=>setIsLoading(false))
     },[data,router]);
 
