@@ -5,7 +5,6 @@ import getCurrentUser from "@/app/actions/getCurrentUser"
 export async function POST(
     request: Request
 ) {
-    console.log("提交了请求");
     
     try {
         const currentUser = await getCurrentUser();
