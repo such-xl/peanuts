@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import { format } from "date-fns";
 import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 interface MessageBoxProps {
     data: FullMessageType;
@@ -20,6 +21,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
     console.log('session:',session?.data?.user?.email);
     console.log('data:',data?.sender?.email);
     
+    console.log(data.image);
     
     const seenList = (data.seen || [])
         .filter((user) => user.email !== data?.sender?.email)
@@ -56,7 +58,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
                 <div className={message}>
                     {
                         data.image ? (
-                            <Image alt="Image" height="288" width="288" src={data.image}
+                            <CldImage src={data.image} alt="Image" height="288" width="288"
                                 className="object-cover cursor-pointer hover:scale-110 transition traslate"
                             />) : (
                             <div>{data.body}</div>
