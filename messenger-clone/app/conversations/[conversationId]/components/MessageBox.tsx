@@ -18,8 +18,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({
 }) => {
     const session = useSession();
     const isOwn = session?.data?.user?.email === data?.sender?.email;
-    console.log('session:',session?.data?.user?.email);
-    console.log('data:',data?.sender?.email);
+    // console.log('session:',session?.data?.user?.email);
+    // console.log('data:',data?.sender?.email);
     
     console.log(data.image);
     
